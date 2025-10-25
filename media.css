@@ -1,0 +1,195 @@
+/* Responsive Design */
+
+/* Tablets */
+@media (max-width: 992px) {
+  .dashboard-box {
+    max-width: 80%;
+    padding: 30px;
+  }
+
+  .dashboard-box h2 {
+    font-size: 1.8rem;
+  }
+
+  .start-box {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+}
+
+/* Mobiles */
+@media (max-width: 768px) {
+  /* Navbar */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: linear-gradient(to right, #001f54, #00c6ff);
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 20px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  /* Dashboard Box */
+  .dashboard-box {
+    max-width: 90%;
+    padding: 20px;
+  }
+
+  .dashboard-box h2 {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-footer {
+    font-size: 1.5rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 0.9rem;
+  }
+
+  /* Start Box */
+  .start-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .start-text h2 {
+    font-size: 1.4rem;
+  }
+
+  .start-stat {
+    font-size: 1rem;
+  }
+
+  .start-image img {
+    max-width: 100px;
+  }
+}
+
+/* Extra Small Mobiles */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .login-btn {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+  }
+
+  .dashboard-box {
+    padding: 15px;
+  }
+
+  .dashboard-box h2 {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-footer {
+    font-size: 1.2rem;
+  }
+
+  .dashboard-subtitle {
+    font-size: 0.8rem;
+  }
+}
+/* Why Section - Responsive */
+@media (max-width: 768px) {
+  .why-section {
+    padding: 1.5rem;
+  }
+
+  .why-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .why-section p {
+    font-size: 0.95rem;
+  }
+
+  .why-section .impact-text {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-section {
+    padding: 1rem;
+  }
+
+  .why-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .why-section p {
+    font-size: 0.85rem;
+  }
+
+  .why-section .impact-text {
+    font-size: 0.95rem;
+  }
+}
+/* Consequences Section Responsive */
+@media (max-width: 768px) {
+  .consequences-section {
+    padding: 1.5rem;
+  }
+
+  .consequences-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .consequences-section li {
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .consequences-section {
+    padding: 1rem;
+  }
+
+  .consequences-section h2 {
+    font-size: 1.3rem;
+  }
+
+  .consequences-section li {
+    font-size: 0.85rem;
+    margin-bottom: 0.7rem;
+  }
+}
+/* Consequence Buttons Responsive */
+@media (max-width: 768px) {
+  .consequences-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .consequence-btn {
+    width: 80%;
+    text-align: center;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .consequence-btn {
+    width: 90%;
+    font-size: 0.9rem;
+    padding: 0.6rem 0.8rem;
+  }
+}
+
