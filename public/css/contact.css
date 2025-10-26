@@ -1,0 +1,18 @@
+body {
+  padding-top: 70px;
+}
+
+.feedback-card {
+  border-radius: 20px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+}
+
+.feedback-card:hover {
+  box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
+  transform: translateY(-5px);
+}
+
+#feedbackResponse {
+  min-height: 30px;
+}

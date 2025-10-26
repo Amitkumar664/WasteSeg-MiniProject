@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Waste Segregation - Clear Earth</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/media.css">
+  
+</head>
+<body>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4 fw-bold" href="#">
+          <span class="logo">♻️ ClearEarth</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav gap-2 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/learn">Learn Segregation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ai">AI Identifier</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.google.com/maps/search/waste+disposal+centres+near+me" target="_blank">Find Disposal Centre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <li class="nav-item">
+              <button class="btn btn-danger login-btn fw-bold rounded-pill px-4 py-2 mt-2 mt-lg-0">Login</button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero pt-5 position-relative d-flex flex-column align-items-center bg-light min-vh-100">
+    <div class="hero-image-container w-100 rounded-4 border border-5 border-primary shadow-lg mt-5 mb-5 overflow-hidden position-relative" style="height: 60vh;">
+      
+      <div class="dashboard-box position-absolute top-50 start-50 translate-middle bg-white p-4 p-md-5 rounded-4 text-center shadow-lg" style="max-width: 500px;">
+        <h2 class="bouncy-text text-primary mb-3 fw-bold display-5">Clear Earth Waste</h2>
+        <div class="d-flex justify-content-center gap-3 fs-1 mb-3">
+          <span class="earth">🌍</span>
+          <span class="recycle">♻️</span>
+        </div>
+        <p class="text-secondary fs-6 mb-0">
+          Your Smart Solution for Waste Management and Environmental Sustainability
+        </p>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="card p-4 shadow-lg mb-5 border-0 bg-white">
+        <div class="row align-items-center">
+          <div class="col-md-8 text-center text-md-start">
+            <h2 class="text-primary fw-bold fs-3">Clear Earth starts with you</h2>
+            <p class="text-success fw-bold fs-5 mb-0 mt-2">🌱 1200 Trees Planted</p>
+          </div>
+          <div class="col-md-4 text-center mt-3 mt-md-0">
+            <img src="./assets/tree2.webp" alt="Plant Image" class="img-fluid rounded-3 shadow-sm" style="max-width: 120px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container py-5">
+    <section class="why-section card p-4 p-md-5 shadow-lg mb-5 bg-light-info border-0">
+      <h2 class="text-center text-primary mb-4 fw-bold display-5">Why Waste Management?</h2>
+      <ul class="list-unstyled">
+        <li class="mb-3 d-flex align-items-start">
+          <span class="me-3 fs-4">♻️</span>
+          <p class="mb-0 text-dark">Waste management is crucial for preserving our planet's health and ensuring a sustainable future.</p>
+        </li>
+        <li class="mb-3 d-flex align-items-start">
+          <span class="me-3 fs-4">♻️</span>
+          <p class="mb-0 text-dark">Millions of tons of waste end up in landfills and oceans yearly, causing severe environmental damage.</p>
+        </li>
+        <li class="mb-3 d-flex align-items-start">
+          <span class="me-3 fs-4">♻️</span>
+          <p class="mb-0 text-dark">Proper waste management reduces pollution, conserves resources, and minimizes greenhouse gas emissions.</p>
+        </li>
+        <li class="mb-3 d-flex align-items-start">
+          <span class="me-3 fs-4">♻️</span>
+          <p class="mb-0 text-dark">Responsible disposal protects ecosystems, improves public health, and creates a cleaner world.</p>
+        </li>
+        <li class="mb-3 d-flex align-items-start">
+          <span class="me-3 fs-4">♻️</span>
+          <p class="mb-0 text-dark fw-bold"><strong>Remember:</strong> Every small action counts — from recycling one bottle to segregating waste at home.</p>
+        </li>
+      </ul>
+      <p class="impact-text text-center text-success fw-bold fs-5 mt-4">🌍 Together, we can make a significant impact on our planet's well-being.</p>
+    </section>
+
+    <section class="consequences-section card p-4 p-md-5 shadow-lg bg-light-warning border-0">
+      <h2 class="text-center text-danger mb-4 fw-bold display-5">Consequences of Poor Waste Management</h2>
+      <div class="consequences-buttons d-flex flex-wrap justify-content-center gap-3 mb-4">
+        <button class="btn btn-danger consequence-btn pollution rounded-pill">Environmental Pollution</button>
+        <button class="btn btn-warning consequence-btn warming rounded-pill">Global Warming</button>
+        <button class="btn btn-success consequence-btn health rounded-pill">Health Issues</button>
+        <button class="btn btn-primary consequence-btn marine rounded-pill">Marine Life</button>
+        <button class="btn btn-dark consequence-btn economic rounded-pill">Economic Impact</button>
+      </div>
+
+      <div id="info-box" class="info-box card p-3 shadow-sm border-0 bg-white">
+        <div class="row g-3 align-items-center">
+            <div class="col-md-4 text-center">
+                <img id="info-image" src="" alt="Info Image" class="img-fluid rounded-3 w-100" style="max-height: 200px; object-fit: cover;">
+            </div>
+            <div class="col-md-8 info-text">
+                <h3 id="info-title" class="text-primary fw-bold"></h3>
+                <ul id="info-points" class="list-unstyled mt-3">
+                    </ul>
+            </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
+</body>
+</html>
