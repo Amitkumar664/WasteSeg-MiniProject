@@ -1,0 +1,102 @@
+/* Custom CSS for Modern/Bootstrap Overrides */
+
+:root {
+  --bs-primary: #001f54;
+  --bs-danger: #b22222;
+  --bs-success: #28a745;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  padding-top: 60px; /* Space for fixed top navbar */
+}
+
+/* Navbar Customization */
+.bg-primary {
+  background: linear-gradient(to right, #001f54, #00c6ff) !important;
+}
+
+.navbar-brand .logo {
+  color: white;
+}
+
+/* Hero Section Customization */
+.hero-image-container {
+  /* Using Bootstrap's utility classes in HTML for most styling */
+  background-size: cover;
+  background-position: center;
+  transition: background-image 1s ease-in-out; /* Smooth transition for background image change */
+}
+
+/* Dashboard Box Animations */
+.dashboard-box {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50% { transform: translate(-50%, -50%) translateY(-10px); }
+}
+
+.bouncy-text {
+  display: inline-block;
+  animation: bounce 1s infinite alternate;
+}
+
+@keyframes bounce {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+/* Section Colors */
+.bg-light-info {
+  background-color: #f4faff !important; /* light sky blue-ish */
+}
+
+.bg-light-warning {
+  background-color: #fff5f5 !important; /* light red-ish */
+}
+
+/* Why Section List (Overriding Bootstrap list style) */
+.why-section li {
+  line-height: 1.6;
+}
+
+/* Info Box */
+.info-box {
+  /* Hiding/Showing with JS, but using Bootstrap Card styles */
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  display: flex; /* Make it a flex container for the row layout */
+}
+
+.info-box.show {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+}
+
+.info-box img {
+    border-radius: 15px;
+    object-fit: cover;
+}
+
+.info-text ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.info-text ul li {
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.info-text ul li::before {
+  content: "✔️"; 
+  position: absolute;
+  left: 0;
+  color: var(--bs-success); /* Use green checkmark */
+}

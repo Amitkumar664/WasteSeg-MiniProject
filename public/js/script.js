@@ -2,8 +2,17 @@
 // 🌐 Navbar Toggle
 // ================================
 function toggleMenu() {
-  const nav = document.querySelector(".nav-links");
-  nav.classList.toggle("active");
+  // Use Bootstrap 5 classes: .collapse and .show
+  const nav = document.querySelector("#navbarNav"); // Selector changed to target the ID of the collapsible div
+  const toggler = document.querySelector(".navbar-toggler");
+
+  if (nav.classList.contains("show")) {
+    nav.classList.remove("show");
+    toggler.setAttribute("aria-expanded", "false");
+  } else {
+    nav.classList.add("show");
+    toggler.setAttribute("aria-expanded", "true");
+  }
 }
 
 // ================================
@@ -26,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function changeBackground() {
     if (heroBg) {
+      // In a modern context, using a background image in CSS is often cleaner for hero sections
       heroBg.style.backgroundImage = `url(${images[current]})`;
       heroBg.style.backgroundSize = "cover";
       heroBg.style.backgroundPosition = "center";
@@ -74,29 +84,35 @@ document.addEventListener("DOMContentLoaded", () => {
   // Show info box on button click (mobile-friendly)
   buttons.forEach(btn => {
     btn.addEventListener("click", e => {
-      const key = btn.classList[1]; // pollution, warming, etc.
-      const { title, image, points } = data[key];
+      // Get the key from the class list, assuming the second class is the key (e.g., 'btn', 'pollution')
+      const keyClass = Array.from(btn.classList).find(c => data.hasOwnProperty(c));
+      
+      if (!keyClass) return; // Exit if no valid key is found
+
+      const { title, image, points } = data[keyClass];
 
       infoTitle.textContent = title;
       infoImage.src = image;
+      // Using .map() to create the <li> elements
       infoPoints.innerHTML = points.map(p => `<li>${p}</li>`).join("");
 
-      // Show info box
+      // Add the 'show' class to display the box with animation
       infoBox.classList.add("show");
 
-      // Scroll into view smoothly on mobile
+      // Scroll into view smoothly on mobile/small screens
       setTimeout(() => {
         infoBox.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100); // small delay ensures rendering
+      }, 100); 
     });
   });
 
   // Click/tap outside to close info box
   document.addEventListener("click", event => {
+    // Check if the click is outside the infoBox AND not on a consequence button
     if (
       infoBox.classList.contains("show") &&
       !infoBox.contains(event.target) &&
-      !event.target.classList.contains("consequence-btn")
+      !event.target.closest(".consequence-btn") // Use .closest() for better targeting of the button element
     ) {
       infoBox.classList.remove("show");
     }
