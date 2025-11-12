@@ -100,3 +100,17 @@ body {
   left: 0;
   color: var(--bs-success); /* Use green checkmark */
 }
+
+footer {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+footer a:hover {
+  text-decoration: underline;
+  color: #d4f1f4 !important;
+}
+
+footer hr {
+  opacity: 0.2;
+}
