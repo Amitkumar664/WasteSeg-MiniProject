@@ -2,26 +2,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const form = document.getElementById("feedbackForm");
   const responseDiv = document.getElementById("feedbackResponse");
 
-  form.addEventListener("submit", (e) => {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
 
     const name = document.getElementById("name").value.trim();
     const email = document.getElementById("email").value.trim();
     const message = document.getElementById("message").value.trim();
 
-    if (!name || !email || !message) {
-      responseDiv.textContent = "⚠️ Please fill all fields!";
-      responseDiv.classList.replace("text-success", "text-danger");
-      return;
+    responseDiv.textContent = "⏳ Sending feedback...";
+
+    try {
+      const res = await fetch("/send-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, email, message }),
+      });
+
+      const data = await res.json();
+      if (data.success) {
+        responseDiv.textContent = data.message;
+        responseDiv.classList.add("text-success");
+        form.reset();
+      } else {
+        responseDiv.textContent = data.error;
+        responseDiv.classList.add("text-danger");
+      }
+    } catch (err) {
+      console.error(err);
+      responseDiv.textContent = "❌ Error sending feedback.";
+      responseDiv.classList.add("text-danger");
     }
-
-    // Simulate sending email (replace with backend API later)
-    responseDiv.textContent = "📧 Sending your feedback...";
-    responseDiv.classList.replace("text-danger", "text-success");
-
-    setTimeout(() => {
-      responseDiv.textContent = "✅ Thank you! Your feedback has been sent.";
-      form.reset();
-    }, 1500);
   });
 });

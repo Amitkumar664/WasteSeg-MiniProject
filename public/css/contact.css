@@ -1,18 +1,68 @@
-body {
-  padding-top: 70px;
+/* 🌐 Contact Section */
+.contact-section {
+  min-height: 90vh
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.feedback-card {
-  border-radius: 20px;
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 0 15px rgba(0, 123, 255, 0.3);
+/* Title gradient same as navbar/footer */
+.contact-title {
+  background: linear-gradient(90deg, #003366, #0059b3, #003366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.2rem;
 }
 
-.feedback-card:hover {
-  box-shadow: 0 0 25px rgba(0, 123, 255, 0.6);
-  transform: translateY(-5px);
+/* Card Styling */
+.contact-card, .feedback-card {
+  background: #ffffffcc; /* light transparency */
+  backdrop-filter: blur(10px);
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#feedbackResponse {
-  min-height: 30px;
+.contact-card:hover, .feedback-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtitle Gradient */
+.contact-subtitle {
+  background: linear-gradient(90deg, #003366, #0073e6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Links */
+.contact-link {
+  color: #0059b3;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: #0073e6;
+  text-decoration: underline;
+}
+
+/* Button styling */
+.send-btn {
+  background: linear-gradient(90deg, #003366, #0059b3, #003366);
+  color: #fff;
+  border: none;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.send-btn:hover {
+  background: linear-gradient(90deg, #004080, #0073e6);
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-card, .feedback-card {
+    margin: 0 15px;
+  }
 }

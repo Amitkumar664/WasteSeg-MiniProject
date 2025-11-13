@@ -1,102 +1,55 @@
-/* Custom CSS for Modern/Bootstrap Overrides */
-
-:root {
-  --bs-primary: #001f54;
-  --bs-danger: #b22222;
-  --bs-success: #28a745;
+/* 💙 Consistent Blue Navbar (Matches Footer Theme) */
+.blue-navbar {
+  background: linear-gradient(90deg, #001f54, #004e92, #0078d7);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+  z-index: 1000;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
-body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  padding-top: 60px; /* Space for fixed top navbar */
+/* Logo */
+.blue-navbar .logo {
+  color: #b3d9ff;
+  font-weight: 700;
+  letter-spacing: 0.5px;
 }
 
-/* Navbar Customization */
-.bg-primary {
-  background: linear-gradient(to right, #001f54, #00c6ff) !important;
+/* Navbar Links */
+.blue-navbar .nav-link {
+  color: #e9f3ff !important;
+  font-weight: 500;
+  transition: color 0.2s ease-in-out;
 }
 
-.navbar-brand .logo {
+.blue-navbar .nav-link:hover,
+.blue-navbar .nav-link.active {
+  color: #a9d4ff !important;
+}
+
+/* Red Login Button */
+.blue-navbar .login-btn {
+  background-color: #ff4d4d;
   color: white;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Hero Section Customization */
-.hero-image-container {
-  /* Using Bootstrap's utility classes in HTML for most styling */
-  background-size: cover;
-  background-position: center;
-  transition: background-image 1s ease-in-out; /* Smooth transition for background image change */
+.blue-navbar .login-btn:hover {
+  background-color: #e63946;
+  transform: scale(1.05);
 }
 
-/* Dashboard Box Animations */
-.dashboard-box {
-  animation: float 3s ease-in-out infinite;
+/* Add slight shadow when scrolling */
+.blue-navbar.scrolled {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
 }
 
-@keyframes float {
-  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
-  50% { transform: translate(-50%, -50%) translateY(-10px); }
-}
-
-.bouncy-text {
-  display: inline-block;
-  animation: bounce 1s infinite alternate;
-}
-
-@keyframes bounce {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-8px); }
-  100% { transform: translateY(0); }
-}
-
-/* Section Colors */
-.bg-light-info {
-  background-color: #f4faff !important; /* light sky blue-ish */
-}
-
-.bg-light-warning {
-  background-color: #fff5f5 !important; /* light red-ish */
-}
-
-/* Why Section List (Overriding Bootstrap list style) */
-.why-section li {
-  line-height: 1.6;
-}
-
-/* Info Box */
-.info-box {
-  /* Hiding/Showing with JS, but using Bootstrap Card styles */
-  opacity: 0;
-  transform: scale(0.95);
-  pointer-events: none;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  display: flex; /* Make it a flex container for the row layout */
-}
-
-.info-box.show {
-  opacity: 1;
-  transform: scale(1);
-  pointer-events: auto;
-}
-
-.info-box img {
-    border-radius: 15px;
-    object-fit: cover;
-}
-
-.info-text ul {
-  list-style-type: none;
-  padding-left: 0;
-}
-
-.info-text ul li {
-  position: relative;
-  padding-left: 1.5rem;
-}
-
-.info-text ul li::before {
-  content: "✔️"; 
-  position: absolute;
-  left: 0;
-  color: var(--bs-success); /* Use green checkmark */
+/* Mobile View Dropdown */
+@media (max-width: 991px) {
+  .blue-navbar .navbar-nav {
+    background: linear-gradient(180deg, #002855, #004e92);
+    border-radius: 0 0 10px 10px;
+    padding: 10px 0;
+  }
 }
