@@ -18,10 +18,14 @@
   },
   "homepage": "https://github.com/Amitkumar664/WasteSeg-MiniProject#readme",
   "dependencies": {
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "axios": "^1.13.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "ejs": "^3.1.10",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "form-data": "^4.0.4",
+    "multer": "^2.0.2"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"

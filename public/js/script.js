@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // 🌄 Rotating Hero Background Images
-  const images = ["./assets/b1.jpg", "./assets/b2.jpg"];
+  const images = ["./assets/backofDashboard.jpg","./assets/b1.jpeg", "./assets/b2.jpeg"];
   let current = 0;
   const heroBg = document.querySelector(".hero-image-container");
 
