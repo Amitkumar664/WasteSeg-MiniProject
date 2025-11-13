@@ -1,14 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Waste Segregation - Clear Earth</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/media.css">
-  
-</head>
 <body>
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
@@ -45,88 +34,127 @@
     </nav>
   </header>
 
-  <section class="hero pt-5 position-relative d-flex flex-column align-items-center bg-light min-vh-100">
-    <div class="hero-image-container w-100 rounded-4 border border-5 border-primary shadow-lg mt-5 mb-5 overflow-hidden position-relative" style="height: 60vh;">
-      
-      <div class="dashboard-box position-absolute top-50 start-50 translate-middle bg-white p-4 p-md-5 rounded-4 text-center shadow-lg" style="max-width: 500px;">
-        <h2 class="bouncy-text text-primary mb-3 fw-bold display-5">Clear Earth Waste</h2>
-        <div class="d-flex justify-content-center gap-3 fs-1 mb-3">
-          <span class="earth">🌍</span>
-          <span class="recycle">♻️</span>
-        </div>
-        <p class="text-secondary fs-6 mb-0">
-          Your Smart Solution for Waste Management and Environmental Sustainability
-        </p>
-      </div>
-    </div>
+  <!-- 🌟 Content Overlay -->
+  <div class="container position-relative z-1">
+    <h1 class="fw-bold display-5">
+      Empowering a Cleaner Planet with 
+      <span>AI Waste Segregation</span> 
+      <div><imp src="../assets/logo.png" width="50" height="50" alt="Logo"></div>
+    </h1>
+    <p class="lead">
+      Harnessing Artificial Intelligence to sort and manage waste efficiently for a sustainable tomorrow.
+    </p>
+    <a href="/learn" class="btn btn-light px-4 mt-3">Learn More</a>
+  </div>
+</section>
 
+
+  <!-- 🧠 AI FEATURES SECTION -->
+  <section class="features py-5">
     <div class="container">
-      <div class="card p-4 shadow-lg mb-5 border-0 bg-white">
-        <div class="row align-items-center">
-          <div class="col-md-8 text-center text-md-start">
-            <h2 class="text-primary fw-bold fs-3">Clear Earth starts with you</h2>
-            <p class="text-success fw-bold fs-5 mb-0 mt-2">🌱 1200 Trees Planted</p>
+      <h2 class="text-center text-primary fw-bold mb-5">Our Smart AI System</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="feature-card">
+            <img src="/assets/ai-detect.png" alt="AI Detection">
+            <h4>AI Detection</h4>
+            <p>Automatically detects waste type using image recognition and machine learning algorithms.</p>
           </div>
-          <div class="col-md-4 text-center mt-3 mt-md-0">
-            <img src="./assets/tree2.webp" alt="Plant Image" class="img-fluid rounded-3 shadow-sm" style="max-width: 120px;">
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <img src="/assets/ai-sort.png" alt="Classification">
+            <h4>Instant Classification</h4>
+            <p>Our AI classifies waste as plastic, organic, glass, metal, or hazardous within seconds.</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="feature-card">
+            <img src="/assets/recycle.png" alt="Recycle Automation">
+            <h4>Recycling Automation</h4>
+            <p>Seamlessly integrates with recycling systems to optimize sorting and minimize human error.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <main class="container py-5">
-    <section class="why-section card p-4 p-md-5 shadow-lg mb-5 bg-light-info border-0">
-      <h2 class="text-center text-primary mb-4 fw-bold display-5">Why Waste Management?</h2>
-      <ul class="list-unstyled">
-        <li class="mb-3 d-flex align-items-start">
-          <span class="me-3 fs-4">♻️</span>
-          <p class="mb-0 text-dark">Waste management is crucial for preserving our planet's health and ensuring a sustainable future.</p>
-        </li>
-        <li class="mb-3 d-flex align-items-start">
-          <span class="me-3 fs-4">♻️</span>
-          <p class="mb-0 text-dark">Millions of tons of waste end up in landfills and oceans yearly, causing severe environmental damage.</p>
-        </li>
-        <li class="mb-3 d-flex align-items-start">
-          <span class="me-3 fs-4">♻️</span>
-          <p class="mb-0 text-dark">Proper waste management reduces pollution, conserves resources, and minimizes greenhouse gas emissions.</p>
-        </li>
-        <li class="mb-3 d-flex align-items-start">
-          <span class="me-3 fs-4">♻️</span>
-          <p class="mb-0 text-dark">Responsible disposal protects ecosystems, improves public health, and creates a cleaner world.</p>
-        </li>
-        <li class="mb-3 d-flex align-items-start">
-          <span class="me-3 fs-4">♻️</span>
-          <p class="mb-0 text-dark fw-bold"><strong>Remember:</strong> Every small action counts — from recycling one bottle to segregating waste at home.</p>
-        </li>
-      </ul>
-      <p class="impact-text text-center text-success fw-bold fs-5 mt-4">🌍 Together, we can make a significant impact on our planet's well-being.</p>
-    </section>
-
-    <section class="consequences-section card p-4 p-md-5 shadow-lg bg-light-warning border-0">
-      <h2 class="text-center text-danger mb-4 fw-bold display-5">Consequences of Poor Waste Management</h2>
-      <div class="consequences-buttons d-flex flex-wrap justify-content-center gap-3 mb-4">
-        <button class="btn btn-danger consequence-btn pollution rounded-pill">Environmental Pollution</button>
-        <button class="btn btn-warning consequence-btn warming rounded-pill">Global Warming</button>
-        <button class="btn btn-success consequence-btn health rounded-pill">Health Issues</button>
-        <button class="btn btn-primary consequence-btn marine rounded-pill">Marine Life</button>
-        <button class="btn btn-dark consequence-btn economic rounded-pill">Economic Impact</button>
-      </div>
-
-      <div id="info-box" class="info-box card p-3 shadow-sm border-0 bg-white">
-        <div class="row g-3 align-items-center">
-            <div class="col-md-4 text-center">
-                <img id="info-image" src="" alt="Info Image" class="img-fluid rounded-3 w-100" style="max-height: 200px; object-fit: cover;">
+  <!-- ♻️ WASTE CATEGORY CARDS -->
+  <section class="waste-section py-5">
+    <div class="container">
+      <h2 class="text-center text-primary fw-bold mb-5">Types of Waste We Handle</h2>
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="waste-card">
+            <img src="/assets/organic.png" alt="Organic Waste">
+            <div class="content">
+              <h5>🌱 Organic Waste</h5>
+              <p>Biodegradable materials such as food scraps and garden waste.</p>
+              <a href="https://www.epa.gov/recycle/composting-home" target="_blank">Learn More →</a>
             </div>
-            <div class="col-md-8 info-text">
-                <h3 id="info-title" class="text-primary fw-bold"></h3>
-                <ul id="info-points" class="list-unstyled mt-3">
-                    </ul>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="waste-card">
+            <img src="/assets/plastic.png" alt="Plastic Waste">
+            <div class="content">
+              <h5>🧴 Plastic Waste</h5>
+              <p>All recyclable plastic bottles, packaging, and containers.</p>
+              <a href="https://plastics.americanchemistry.com/recycling" target="_blank">Learn More →</a>
             </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="waste-card">
+            <img src="/assets/metal.png" alt="Metal Waste">
+            <div class="content">
+              <h5>🔩 Metal Waste</h5>
+              <p>Recyclable metal cans, tins, copper, and aluminum products.</p>
+              <a href="https://www.epa.gov/recycle/metal-recycling" target="_blank">Learn More →</a>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+
+  <!-- 🌟 IMPACT CARDS -->
+  <section class="impact-section py-5">
+    <div class="container text-center">
+      <h2 class="text-white fw-bold mb-5">Our Positive Environmental Impact</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-3">
+          <div class="impact-card">
+            <h3 class="counter" data-target="1500">0</h3>
+            <p>Tons of Waste Processed</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="impact-card">
+            <h3 class="counter" data-target="800">0</h3>
+            <p>Communities Connected</p>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="impact-card">
+            <h3 class="counter" data-target="400">0</h3>
+            <p>AI Systems Deployed</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 💡 CTA CARD -->
+  <section class="cta py-5 text-center">
+    <div class="container">
+      <div class="cta-card">
+        <h2>Be Part of the Change 🌍</h2>
+        <p>Join our movement for a cleaner, smarter planet powered by AI.</p>
+        <a href="/contact" class="btn btn-primary px-4 mt-2">Get Involved</a>
+      </div>
+    </div>
+  </section>
 
     <!-- Footer -->
   <footer class="bg-primary text-white text-center text-md-start mt-5 shadow-sm">

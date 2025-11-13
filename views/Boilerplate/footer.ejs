@@ -1,0 +1,89 @@
+<style>
+/* ----- Blue Gradient Sticky Footer ----- */
+.footer {
+  position: relative; /* no longer fixed */
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #003366, #0059b3, #003366);
+  color: #f0f0f0;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  padding: 14px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.footer-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.footer span {
+  color: #99ccff;
+  font-weight: 600;
+}
+
+/* ❤️ Heart icon */
+.footer .bi-heart-fill {
+  color: #ff4d4d;
+  margin: 0 3px;
+  vertical-align: middle;
+}
+
+/* 🌐 Social links */
+.footer .social-icons a {
+  color: #e0e0e0;
+  margin-left: 14px;
+  font-size: 1.1rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer .social-icons a:hover {
+  color: #99ccff;
+  transform: scale(1.1);
+}
+
+/* 📱 Responsive adjustments */
+@media (max-width: 600px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+    gap: 6px;
+  }
+  .footer .social-icons a {
+    margin: 0 10px;
+  }
+}
+
+/* 🧱 Make body fill viewport so footer stays bottom when content short */
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+</style>
+
+<footer class="footer">
+  <div class="footer-container">
+    <p>
+      © <%= new Date().getFullYear() %> <span>WasteSeg</span> |
+      Designed with <i class="bi bi-heart-fill"></i>
+    </p>
+    <div class="social-icons">
+      <a href="#"><i class="bi bi-github"></i></a>
+      <a href="#"><i class="bi bi-linkedin"></i></a>
+      <a href="#"><i class="bi bi-instagram"></i></a>
+    </div>
+  </div>
+</footer>

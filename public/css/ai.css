@@ -1,17 +1,48 @@
-body {
-  padding-top: 70px;
+/* 🌊 AI Waste Identifier Section */
+.ai-section {
+  min-height: 80vh /* adjusts for navbar + footer */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.camera-box {
-  max-width: 400px;
-  transition: transform 0.3s ease;
+.ai-title {
+  background: linear-gradient(90deg, #003366, #0059b3, #003366);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2rem;
 }
 
-.camera-box:hover {
-  transform: translateY(-5px);
+/* 📦 AI Card */
+.ai-card {
+  max-width: 420px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-#resultMessage {
-  min-height: 40px;
-  word-wrap: break-word;
+.ai-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* 📸 Identify Button */
+.identify-btn {
+  background: linear-gradient(90deg, #003366, #0059b3, #003366);
+  color: #fff;
+  border: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.identify-btn:hover {
+  background: linear-gradient(90deg, #004080, #0073e6);
+  transform: scale(1.05);
+}
+
+/* Responsive tweaks */
+@media (max-width: 576px) {
+  .ai-card {
+    width: 100%;
+    margin: 0 10px;
+    padding: 20px;
+  }
 }

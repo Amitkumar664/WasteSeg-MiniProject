@@ -1,195 +1,193 @@
-/* Responsive Design */
-
-/* Tablets */
-@media (max-width: 992px) {
-  .dashboard-box {
-    max-width: 80%;
-    padding: 30px;
-  }
-
-  .dashboard-box h2 {
-    font-size: 1.8rem;
-  }
-
-  .start-box {
-    flex-direction: column;
-    text-align: center;
-    gap: 1rem;
-  }
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f5f8ff;
+  color: #0d1b2a;
 }
 
-/* Mobiles */
+/* 🎥 HERO VIDEO BACKGROUND */
+.hero-section {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+/* Video styling */
+.hero-bg-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Keeps video proportional */
+  z-index: 0;
+  filter: brightness(60%); /* Darkens video for text readability */
+}
+
+/* Content sits above video */
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Text enhancements */
+.hero-section h1 {
+  font-weight: 700;
+  font-size: 2.8rem;
+}
+
+.hero-section span {
+  color: #b3e5ff;
+}
+
+.hero-section .btn {
+  font-weight: 600;
+  border-radius: 30px;
+}
+
+/* Responsive adjustment */
 @media (max-width: 768px) {
-  /* Navbar */
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: linear-gradient(to right, #001f54, #00c6ff);
-    position: absolute;
-    top: 60px;
-    right: 0;
-    width: 200px;
-    padding: 20px;
+  .hero-section h1 {
+    font-size: 2rem;
   }
-
-  .nav-links.active {
-    display: flex;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  /* Dashboard Box */
-  .dashboard-box {
-    max-width: 90%;
-    padding: 20px;
-  }
-
-  .dashboard-box h2 {
-    font-size: 1.5rem;
-  }
-
-  .dashboard-footer {
-    font-size: 1.5rem;
-  }
-
-  .dashboard-subtitle {
-    font-size: 0.9rem;
-  }
-
-  /* Start Box */
-  .start-box {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .start-text h2 {
-    font-size: 1.4rem;
-  }
-
-  .start-stat {
-    font-size: 1rem;
-  }
-
-  .start-image img {
-    max-width: 100px;
-  }
-}
-
-/* Extra Small Mobiles */
-@media (max-width: 480px) {
-  .logo {
-    font-size: 1.2rem;
-  }
-
-  .login-btn {
-    padding: 6px 12px;
-    font-size: 0.9rem;
-  }
-
-  .dashboard-box {
-    padding: 15px;
-  }
-
-  .dashboard-box h2 {
-    font-size: 1.2rem;
-  }
-
-  .dashboard-footer {
-    font-size: 1.2rem;
-  }
-
-  .dashboard-subtitle {
-    font-size: 0.8rem;
-  }
-}
-/* Why Section - Responsive */
-@media (max-width: 768px) {
-  .why-section {
-    padding: 1.5rem;
-  }
-
-  .why-section h2 {
-    font-size: 1.5rem;
-  }
-
-  .why-section p {
-    font-size: 0.95rem;
-  }
-
-  .why-section .impact-text {
+  .hero-section p {
     font-size: 1rem;
   }
 }
 
-@media (max-width: 480px) {
-  .why-section {
-    padding: 1rem;
-  }
 
-  .why-section h2 {
-    font-size: 1.3rem;
-  }
-
-  .why-section p {
-    font-size: 0.85rem;
-  }
-
-  .why-section .impact-text {
-    font-size: 0.95rem;
-  }
+/* FEATURE CARDS */
+.feature-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  transition: 0.3s;
 }
-/* Consequences Section Responsive */
+
+.feature-card img {
+  height: 100px;
+  margin-bottom: 15px;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+/* WASTE CARDS */
+.waste-card {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  transition: 0.3s;
+}
+
+.waste-card img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.waste-card .content {
+  padding: 20px;
+}
+
+.waste-card h5 {
+  color: #003366;
+  font-weight: 600;
+}
+
+.waste-card a {
+  text-decoration: none;
+  color: #0078ff;
+  font-weight: 500;
+}
+
+.waste-card:hover {
+  transform: translateY(-5px);
+}
+
+/* IMPACT SECTION */
+.impact-section {
+  background: linear-gradient(135deg, #003973, #0078d7);
+}
+
+.impact-card {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 30px;
+  color: white;
+  backdrop-filter: blur(10px);
+  transition: 0.3s;
+}
+
+.impact-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.impact-card h3 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* CTA Card with Background Image */
+.cta-card {
+  background: url('../assets/volunteer.jpeg') no-repeat center center / cover;
+  border-radius: 15px;
+  padding: 40px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  color: white; /* text visible on dark image */
+  position: relative;
+  overflow: hidden;
+}
+
+/* Optional: Add a dark overlay for better text readability */
+.cta-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 51, 102, 0.55); /* bluish overlay */
+  border-radius: 15px;
+  z-index: 0;
+}
+
+/* Ensure text stays above overlay */
+.cta-card h2,
+.cta-card p,
+.cta-card a {
+  position: relative;
+  z-index: 1;
+}
+
+/* Headings and text */
+.cta-card h2 {
+  color: #fff;
+  font-weight: 700;
+  font-size: 2rem;
+}
+
+.cta-card p {
+  color: #f0f0f0;
+  font-size: 1.1rem;
+}
+
+
+/* Responsive */
 @media (max-width: 768px) {
-  .consequences-section {
-    padding: 1.5rem;
+  .hero-section {
+    padding: 80px 20px;
   }
-
-  .consequences-section h2 {
-    font-size: 1.5rem;
+  .feature-card img {
+    height: 80px;
   }
-
-  .consequences-section li {
-    font-size: 0.95rem;
-    margin-bottom: 0.8rem;
+  .waste-card img {
+    height: 150px;
   }
 }
-
-@media (max-width: 480px) {
-  .consequences-section {
-    padding: 1rem;
-  }
-
-  .consequences-section h2 {
-    font-size: 1.3rem;
-  }
-
-  .consequences-section li {
-    font-size: 0.85rem;
-    margin-bottom: 0.7rem;
-  }
-}
-/* Consequence Buttons Responsive */
-@media (max-width: 768px) {
-  .consequences-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .consequence-btn {
-    width: 80%;
-    text-align: center;
-    padding: 0.7rem 1rem;
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .consequence-btn {
-    width: 90%;
-    font-size: 0.9rem;
-    padding: 0.6rem 0.8rem;
-  }
-}
-

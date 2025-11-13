@@ -1,52 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Waste Identifier - Clear Earth</title>
-
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="/ai" />
-</head>
 <body class="bg-light">
 
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm">
-    <div class="container">
-      <a class="navbar-brand fw-bold" href="/">♻️ ClearEarth</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-          <li class="nav-item"><a class="nav-link active" href="/ai">AI Identifier</a></li>
-          
-        </ul>
-      </div>
-    </div>
-  </nav>
-
   <!-- Main Section -->
-  <main class="container text-center mt-5 pt-5">
-    <h2 class="text-primary fw-bold mb-4">🧠 AI Waste Identifier</h2>
-    <p class="text-secondary mb-4">Upload or capture an image to identify the type of waste.</p>
+  <main class="ai-section container text-center mt-5 pt-5">
+    <h2 class="fw-bold mb-3 ai-title">
+      🧠 AI Waste Identifier
+    </h2>
+    <p class="text-muted mb-4">
+      Upload or capture an image and let our AI detect the waste category.
+    </p>
 
-    <div class="camera-box mx-auto shadow-lg bg-white p-4 rounded-4">
-      <input type="file" accept="image/*" capture="camera" id="imageInput" class="form-control mb-3">
-      <button id="identifyBtn" class="btn btn-primary px-4 py-2 fw-bold">Identify Waste</button>
-      <div id="resultMessage" class="mt-4 fw-bold fs-5 text-success">
+    <div class="ai-card mx-auto shadow-lg bg-white p-4 rounded-4">
+      <input 
+        type="file" 
+        accept="image/*" 
+        capture="camera" 
+        id="imageInput" 
+        class="form-control mb-3"
+      >
+      <button 
+        id="identifyBtn" 
+        class="btn identify-btn px-4 py-2 fw-semibold rounded-pill"
+      >
+        Identify Waste
+      </button>
+      <div 
+        id="resultMessage" 
+        class="mt-4 fw-semibold fs-5 text-success"
+      >
         📷 Upload an image to get started.
       </div>
     </div>
   </main>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="js/ai.js"></script>
+
+  <script src="/js/ai.js"></script>
 </body>
-</html>
-
-
