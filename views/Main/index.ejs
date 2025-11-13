@@ -1,13 +1,38 @@
 <body>
-  
-
- <!-- 🌍 HERO SECTION -->
-<section class="hero-section text-white text-center position-relative">
-  <!-- 🎥 Background Video -->
-  <video autoplay muted loop playsinline class="hero-bg-video">
-    <source src="../assets/videoback.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-sm fixed-top">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4 fw-bold" href="#">
+          <span class="logo">♻️ ClearEarth</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" onclick="toggleMenu()">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav gap-2 align-items-lg-center">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/learn">Learn Segregation</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/ai">AI Identifier</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://www.google.com/maps/search/waste+disposal+centres+near+me" target="_blank">Find Disposal Centre</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact Us</a>
+            </li>
+            <!-- <li class="nav-item">
+              <button class="btn btn-danger login-btn fw-bold rounded-pill px-4 py-2 mt-2 mt-lg-0">Login</button>
+            </li> -->
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
 
   <!-- 🌟 Content Overlay -->
   <div class="container position-relative z-1">
@@ -131,5 +156,43 @@
     </div>
   </section>
 
-  <script src="/js/script.js"></script>
+    <!-- Footer -->
+  <footer class="bg-primary text-white text-center text-md-start mt-5 shadow-sm">
+    <div class="container py-4">
+      <div class="row align-items-center">
+        <!-- Brand -->
+        <div class="col-md-4 mb-3 mb-md-0 text-center text-md-start">
+          <h5 class="fw-bold mb-2">♻️ ClearEarth</h5>
+          <p class="mb-0 small">
+            Making Earth cleaner and greener through smart waste management.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-md-4 mb-3 mb-md-0 text-center">
+          <a href="/" class="text-white text-decoration-none mx-2">Home</a> |
+          <a href="/learn" class="text-white text-decoration-none mx-2">Learn</a> |
+          <a href="/ai" class="text-white text-decoration-none mx-2">AI Identifier</a> |
+          <a href="/contact" class="text-white text-decoration-none mx-2">Contact</a>
+        </div>
+
+        <!-- Social & Contact -->
+        <div class="col-md-4 text-center text-md-end">
+          <p class="mb-1 small">📧 info@clearearth.com</p>
+          <p class="mb-1 small">📞 +91 1234567890</p>
+        </div>
+      </div>
+
+      <hr class="border-light my-3">
+
+      <div class="text-center small">
+        © 2025 <span class="fw-bold">ClearEarth</span>. All Rights Reserved. 🌍
+      </div>
+    </div>
+  </footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </body>
+</html>
