@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EcoClassify Vision | AI Waste Segregation System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  <style>
+    :root {
+      --primary: #21c87a;
+      --primary-dark: #1a2b3a;
+      --secondary: #232b3b;
+      --accent: #ffd600;
+      --card-bg: #232b3b;
+      --tab-bg: #1a2233;
+      --text: #fff;
+      --muted: #b0b8c1;
+      --success: #21c87a;
+      --danger: #ff5252;
+    }
+    body {
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, #1a2b3a 0%, #23404a 100%);
+      margin: 0;
+      padding: 0;
+      color: var(--text);
+      min-height: 100vh;
+    }
+    .header {
+      background: var(--secondary);
+      padding: 32px 0 24px 0;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    .logo span {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .tagline {
+      margin: 18px 0 0 0;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+    .badge {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 20px;
+      padding: 6px 18px;
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+    }
+    .main-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      margin: 0 0 10px 0;
+      color: #fff;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin-bottom: 32px;
+    }
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin: 32px 0 0 0;
+      flex-wrap: wrap;
+    }
+    .feature-card {
+      background: var(--card-bg);
+      border-radius: 14px;
+      padding: 24px 20px;
+      width: 220px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      color: #fff;
+      margin-bottom: 18px;
+    }
+    .feature-card i {
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .feature-title {
+      font-weight: 600;
+      margin-bottom: 6px;
+      font-size: 1.1rem;
+    }
+    .feature-desc {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .container {
+      max-width: 900px;
+      margin: 38px auto 0 auto;
+      background: var(--tab-bg);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+      padding: 32px 24px 24px 24px;
+    }
+    .tabs {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+    .tab-btn {
+      flex: 1;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.08rem;
+      padding: 12px 0;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s;
+    }
+    .tab-btn.active {
+      background: var(--card-bg);
+      color: var(--primary);
+    }
+    .tab-content {
+      display: none;
+      background: var(--card-bg);
+      border-radius: 0 0 12px 12px;
+      padding: 32px 24px 24px 24px;
+      min-height: 260px;
+      animation: fadeIn 0.7s;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .upload-area {
+      text-align: center;
+      border: 2px dashed var(--primary);
+      border-radius: 12px;
+      padding: 36px 18px;
+      background: rgba(33,200,122,0.04);
+      margin-bottom: 24px;
+    }
+    .upload-area i {
+      font-size: 2.5rem;
+      color: var(--primary);
+      margin-bottom: 10px;
+    }
+    .upload-area input[type="file"] {
+      display: none;
+    }
+    .upload-label {
+      display: inline-block;
+      background: var(--primary);
+      color: #fff;
+      padding: 10px 28px;
+      border-radius: 8px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 16px;
+      transition: background 0.2s;
+    }
+    .upload-label:hover {
+      background: #1bb16a;
+    }
+    .upload-note {
+      color: var(--muted);
+      font-size: 0.98rem;
+      margin-top: 8px;
+    }
+    .cards-row {
+      display: flex;
+      gap: 18px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+    .result-card {
+      flex: 1;
+      background: #1a2233;
+      border-radius: 12px;
+      padding: 24px 16px;
+      min-width: 220px;
+      min-height: 120px;
+      text-align: center;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .result-card i {
+      font-size: 2.2rem;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .result-title {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+    .result-content {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+    .action-row {
+      display: flex;
+      gap: 18px;
+      justify-content: flex-end;
+      margin-top: 18px;
+    }
+    .action-btn {
+      padding: 12px 28px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.08rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .action-btn.process {
+      background: var(--success);
+      color: #fff;
+    }
+    .action-btn.process:hover {
+      background: #1bb16a;
+    }
+    .action-btn.reset {
+      background: var(--danger);
+      color: #fff;
+    }
+    .action-btn.reset:hover {
+      background: #d32f2f;
+    }
+    .footer {
+      margin-top: 48px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.98rem;
+      padding: 18px 0 12px 0;
+    }
+    @media (max-width: 900px) {
+      .features { flex-direction: column; align-items: center; }
+      .cards-row { flex-direction: column; }
+      .container { padding: 18px 4vw 18px 4vw; }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <i class="fa-solid fa-recycle"></i> EcoClassify <span>Vision</span>
+    </div><br>
+    <div class="badge">Transforming Waste Management with AI</div>
+    <div class="main-title">AI Waste Segregation System</div>
+    <div class="subtitle">
+      Using advanced computer vision to automatically classify waste into recyclable categories, promoting sustainability and efficient recycling.
+    </div>
+    <div class="features">
+      <div class="feature-card">
+        <i class="fa-solid fa-camera"></i>
+        <div class="feature-title">Real-time Detection</div>
+        <div class="feature-desc">Classify waste instantly using your device's camera.</div>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-leaf"></i>
+        <div class="feature-title">Eco-Friendly</div>
+        <div class="feature-desc">Promote recycling and reduce environmental impact.</div>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-brain"></i>
+        <div class="feature-title">AI-Powered</div>
+        <div class="feature-desc">Deep learning model trained to recognize waste types.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('uploadTab', this)">Upload Image</button>
+      <button class="tab-btn" onclick="showTab('captureTab', this)">Capture from Webcam</button>
+      <button class="tab-btn" onclick="showTab('liveTab', this)">Live Detection</button>
+    </div>
+    <!-- Upload Tab -->
+    <div id="uploadTab" class="tab-content active">
+      <div class="upload-area" id="uploadDrop">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <div style="font-size:1.15rem;font-weight:600;margin-bottom:6px;">Upload Waste Image</div>
+        <div class="upload-note">Drag & drop your image here or</div>
+        <label class="upload-label">
+          Browse Files
+          <input type="file" accept="image/*" onchange="handleUpload(this)">
+        </label>
+        <div class="upload-note">Limit 20MB per file - JPG, JPEG, PNG</div>
+      </div>
+      <div class="cards-row">
+        <div class="result-card" id="uploadedImageCard">
+          <i class="fa-regular fa-image"></i>
+          <div class="result-title">Uploaded Image</div>
+          <div class="result-content" id="uploadedImageText">No image uploaded</div>
+        </div>
+        <div class="result-card" id="segmentationCard">
+          <i class="fa-regular fa-file-lines"></i>
+          <div class="result-title">Segregation Result</div>
+          <div class="result-content" id="segmentationText">Results will appear here</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <button class="action-btn process" onclick="processImage()">Process Image</button>
+        <button class="action-btn reset" onclick="resetUpload()">Reset</button>
+      </div>
+    </div>
+    <!-- Capture Tab -->
+    <div id="captureTab" class="tab-content">
+      <div class="upload-area">
+        <i class="fa-solid fa-camera"></i>
+        <div style="font-size:1.15rem;font-weight:600;margin-bottom:6px;">Capture Waste Image</div>
+        <div class="upload-note">Use your webcam to capture a photo of your waste item.</div>
+        <video id="camera" autoplay playsinline style="margin-top:12px;max-width:100%;border-radius:10px;"></video><br>
+        <button class="upload-label" onclick="captureImage()">Capture</button>
+        <button class="upload-label" onclick="flipCamera()" style="background:var(--accent);color:#222;margin-left:10px;">Flip Camera</button>
+      </div>
+      <div class="cards-row">
+        <div class="result-card" id="capturedImageCard">
+          <i class="fa-regular fa-image"></i>
+          <div class="result-title">Captured Image</div>
+          <div class="result-content" id="capturedImageText">No image captured</div>
+        </div>
+        <div class="result-card" id="captureResultCard">
+          <i class="fa-regular fa-file-lines"></i>
+          <div class="result-title">Segregation Result</div>
+          <div class="result-content" id="captureResultText">Results will appear here</div>
+        </div>
+      </div>
+    </div>
+    <!-- Live Tab -->
+    <div id="liveTab" class="tab-content">
+      <div class="upload-area">
+        <i class="fa-solid fa-video"></i>
+        <div style="font-size:1.15rem;font-weight:600;margin-bottom:6px;">Live Detection</div>
+        <div class="upload-note">Point your camera at waste items for live predictions.</div>
+        <video id="realtimeCamera" autoplay playsinline style="margin-top:12px;max-width:100%;border-radius:10px;"></video><br>
+        <button class="upload-label" onclick="flipRealtimeCamera()" style="background:var(--accent);color:#222;margin-top:10px;">Flip Camera</button>
+      </div>
+      <div class="result-card" style="margin:0 auto;">
+        <i class="fa-regular fa-file-lines"></i>
+        <div class="result-title">Live Result</div>
+        <div class="result-content" id="realtimeResultText">Results will appear here</div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+    &copy; 2025 AI Waste Segregation System.<br>
+    Bringing AI to sustainability for a cleaner, greener planet.<br>
+    - Developed & Designed by Eco Thinkers
+  </div>
+  <script>
+
+    // Tab switching
+    function showTab(tabId, btn) {
+      document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      if (tabId !== 'liveTab') liveDetectionActive = false;
+    }
+
+    // Upload logic
+    let uploadedImage = null;
+    function handleUpload(input) {
+      const file = input.files[0];
+      if (!file) return;
+      uploadedImage = file;
+      document.getElementById('uploadedImageText').innerHTML = `<img src="${URL.createObjectURL(file)}" style="max-width:120px;border-radius:8px;">`;
+      document.getElementById('segmentationText').innerText = "Ready to process";
+    }
+    // function processImage() {
+    //   if (!uploadedImage) {
+    //     document.getElementById('segmentationText').innerText = "Please upload an image first.";
+    //     return;
+    //   }
+    //   document.getElementById('segmentationText').innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Processing...</span>`;
+    //   // Simulate API call
+    //   setTimeout(() => {
+    //     document.getElementById('segmentationText').innerHTML = `<span style="color:var(--success);">Plastic Bottle<br>Category: Recyclable</span>`;
+    //   }, 1800);
+    // }
+    function resetUpload() {
+      uploadedImage = null;
+      document.getElementById('uploadedImageText').innerText = "No image uploaded";
+      document.getElementById('segmentationText').innerText = "Results will appear here";
+    }
+
+    // Webcam logic (simplified, add your backend integration as needed)
+    let stream, currentFacingMode = "environment";
+    function startCamera(videoId, facingMode = "environment") {
+      const constraints = { video: { facingMode }, audio: false };
+      navigator.mediaDevices.getUserMedia(constraints)
+        .then(s => {
+          stream = s;
+          const video = document.getElementById(videoId);
+          video.srcObject = stream;
+        });
+    }
+    // function captureImage() {
+    //   const video = document.getElementById("camera");
+    //   const canvas = document.createElement("canvas");
+    //   canvas.width = video.videoWidth;
+    //   canvas.height = video.videoHeight;
+    //   canvas.getContext("2d").drawImage(video, 0, 0);
+    //   const dataURL = canvas.toDataURL("image/jpeg");
+    //   document.getElementById("capturedImageText").innerHTML = `<img src="${dataURL}" style="max-width:120px;border-radius:8px;">`;
+    //   document.getElementById("captureResultText").innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Processing...</span>`;
+    //   setTimeout(() => {
+    //     document.getElementById("captureResultText").innerHTML = `<span style="color:var(--success);">Organic Waste<br>Category: Compostable</span>`;
+    //   }, 1800);
+    // }
+
+    // ...existing code...
+    function processImage() {
+      if (!uploadedImage) {
+        document.getElementById('segmentationText').innerText = "Please upload an image first.";
+        return;
+      }
+      document.getElementById('segmentationText').innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Processing...</span>`;
+      const formData = new FormData();
+      formData.append('image', uploadedImage);
+
+      fetch('/predict', {
+        method: 'POST',
+        body: formData
+      })
+        .then(res => res.json())
+        .then(data => {
+          document.getElementById('segmentationText').innerHTML = `<span style="color:var(--success);">${data.result || data.prediction}</span>`;
+        })
+        .catch(() => {
+          document.getElementById('segmentationText').innerHTML = `<span style="color:var(--danger);">Prediction failed. Try again.</span>`;
+        });
+    }
+
+  //   function captureImage() {
+  //   const video = document.getElementById("camera");
+  //   const captureBtn = document.querySelector('#captureTab .upload-label');
+  //   captureBtn.disabled = true;
+  //   captureBtn.style.opacity = 0.6;
+
+  //   const canvas = document.createElement("canvas");
+  //   canvas.width = video.videoWidth;
+  //   canvas.height = video.videoHeight;
+  //   canvas.getContext("2d").drawImage(video, 0, 0);
+
+  //   const imgDataUrl = canvas.toDataURL("image/jpeg");
+  //   document.getElementById("capturedImageText").innerHTML = `<img src="${imgDataUrl}" style="max-width:120px;border-radius:8px;">`;
+  //   document.getElementById("captureResultText").innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Processing...</span>`;
+
+  //   canvas.toBlob(blob => {
+  //     const formData = new FormData();
+  //     formData.append('image', blob, 'capture.jpg');
+  //     fetch('/predict', {
+  //       method: 'POST',
+  //       body: formData
+  //     })
+  //       .then(res => res.json())
+  //       .then(data => {
+  //         let result = data.result || data.prediction;
+  //         if (!result) result = "No prediction received.";
+  //         document.getElementById("captureResultText").innerHTML = `<span style="color:var(--success);">${result}</span>`;
+  //       })
+  //       .catch(() => {
+  //         document.getElementById("captureResultText").innerHTML = `<span style="color:var(--danger);">Prediction failed. Try again.</span>`;
+  //       })
+  //       .finally(() => {
+  //         captureBtn.disabled = false;
+  //         captureBtn.style.opacity = 1;
+  //       });
+  //   }, "image/jpeg");
+  // }
+    // ...existing code...
+
+    function captureImage() {
+      const video = document.getElementById("camera");
+      const captureBtn = document.querySelector('#captureTab .upload-label');
+      captureBtn.disabled = true;
+      captureBtn.style.opacity = 0.6;
+
+      const canvas = document.createElement("canvas");
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext("2d").drawImage(video, 0, 0);
+
+      const imgDataUrl = canvas.toDataURL("image/jpeg");
+      document.getElementById("capturedImageText").innerHTML = `<img src="${imgDataUrl}" style="max-width:120px;border-radius:8px;">`;
+      document.getElementById("captureResultText").innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Processing...</span>`;
+
+      canvas.toBlob(blob => {
+        const formData = new FormData();
+        formData.append('image', blob, 'capture.jpg');
+        fetch('/predict', {
+          method: 'POST',
+          body: formData
+        })
+          .then(res => res.json())
+          .then(data => {
+            let result = data.result || data.prediction || "No prediction received.";
+            let confidence = data.confidence !== undefined ? ` (${(data.confidence * 100).toFixed(1)}%)` : "";
+            document.getElementById("captureResultText").innerHTML =
+              `<span style="color:var(--success);">${result}${confidence}</span>`;
+          })
+          .catch(() => {
+            document.getElementById("captureResultText").innerHTML = `<span style="color:var(--danger);">Prediction failed. Try again.</span>`;
+          })
+          .finally(() => {
+            captureBtn.disabled = false;
+            captureBtn.style.opacity = 1;
+          });
+      }, "image/jpeg");
+    }
+
+
+    function flipCamera() {
+      currentFacingMode = currentFacingMode === "user" ? "environment" : "user";
+      if (stream) stream.getTracks().forEach(track => track.stop());
+      startCamera("camera", currentFacingMode);
+    }
+    // Live detection logic (simplified)
+    function flipRealtimeCamera() {
+      currentFacingMode = currentFacingMode === "user" ? "environment" : "user";
+      if (stream) stream.getTracks().forEach(track => track.stop());
+      startCamera("realtimeCamera", currentFacingMode);
+    }
+    // // Start camera when tab is opened
+    // document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+    //   btn.addEventListener('click', () => {
+    //     if (btn.textContent.includes('Webcam')) startCamera("camera", currentFacingMode);
+    //     if (btn.textContent.includes('Live')) startCamera("realtimeCamera", currentFacingMode);
+    //     if (btn.textContent.includes('Upload') && stream) stream.getTracks().forEach(track => track.stop());
+    //   });
+    // });
+
+    let liveDetectionActive = false;
+
+  //   function startLiveDetection() {
+  //   const video = document.getElementById("realtimeCamera");
+  //   liveDetectionActive = true;
+  //   const resultBox = document.getElementById("realtimeResultText");
+  //   let firstRun = true;
+
+  //   function sendFrame() {
+  //     if (!liveDetectionActive) return;
+  //     if (video.readyState === 4) {
+  //       const canvas = document.createElement("canvas");
+  //       canvas.width = video.videoWidth;
+  //       canvas.height = video.videoHeight;
+  //       canvas.getContext("2d").drawImage(video, 0, 0);
+  //       canvas.toBlob(blob => {
+  //         const formData = new FormData();
+  //         formData.append('image', blob, 'frame.jpg');
+  //         if (firstRun) {
+  //           resultBox.innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Detecting...</span>`;
+  //           firstRun = false;
+  //         }
+  //         fetch('/predict', {
+  //           method: 'POST',
+  //           body: formData
+  //         })
+  //           .then(res => res.json())
+  //           .then(data => {
+  //             let result = data.result || data.prediction;
+  //             if (!result) result = "No prediction received.";
+  //             resultBox.innerHTML = `<span style="color:var(--success);">${result}</span>`;
+  //             setTimeout(sendFrame, 1200);
+  //           })
+  //           .catch(() => {
+  //             resultBox.innerHTML = `<span style="color:var(--danger);">Prediction failed.</span>`;
+  //             setTimeout(sendFrame, 2000);
+  //           });
+  //       }, "image/jpeg");
+  //     } else {
+  //       setTimeout(sendFrame, 600);
+  //     }
+  //   }
+  //   sendFrame();
+  // }
+
+  function startLiveDetection() {
+    const video = document.getElementById("realtimeCamera");
+    liveDetectionActive = true;
+    const resultBox = document.getElementById("realtimeResultText");
+    let firstRun = true;
+
+    function sendFrame() {
+      if (!liveDetectionActive) return;
+      if (video.readyState === 4) {
+        const canvas = document.createElement("canvas");
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext("2d").drawImage(video, 0, 0);
+        canvas.toBlob(blob => {
+          const formData = new FormData();
+          formData.append('image', blob, 'frame.jpg');
+          if (firstRun) {
+            resultBox.innerHTML = `<span style="color:var(--primary);"><i class="fa fa-spinner fa-spin"></i> Detecting...</span>`;
+            firstRun = false;
+          }
+          fetch('/predict', {
+            method: 'POST',
+            body: formData
+          })
+            .then(res => res.json())
+            .then(data => {
+              let result = data.result || data.prediction || "No prediction received.";
+              let confidence = data.confidence !== undefined ? ` (${(data.confidence * 100).toFixed(1)}%)` : "";
+              resultBox.innerHTML = `<span style="color:var(--success);">${result}${confidence}</span>`;
+              setTimeout(sendFrame, 1200);
+            })
+            .catch(() => {
+              resultBox.innerHTML = `<span style="color:var(--danger);">Prediction failed.</span>`;
+              setTimeout(sendFrame, 2000);
+            });
+        }, "image/jpeg");
+      } else {
+        setTimeout(sendFrame, 600);
+      }
+    }
+    sendFrame();
+  }
+
+    document.querySelectorAll('.tab-btn').forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+      if (btn.textContent.includes('Webcam')) {
+        liveDetectionActive = false;
+        startCamera("camera", currentFacingMode);
+      }
+      if (btn.textContent.includes('Live')) {
+        startCamera("realtimeCamera", currentFacingMode);
+        setTimeout(startLiveDetection, 1000); // Wait for camera to be ready
+      }
+      if (btn.textContent.includes('Upload')) {
+        liveDetectionActive = false;
+        if (stream) stream.getTracks().forEach(track => track.stop());
+      }
+    });
+  });
+
+    // Drag & drop upload
+    const uploadDrop = document.getElementById('uploadDrop');
+    uploadDrop.addEventListener('dragover', e => { e.preventDefault(); uploadDrop.style.background = 'rgba(33,200,122,0.10)'; });
+    uploadDrop.addEventListener('dragleave', e => { e.preventDefault(); uploadDrop.style.background = 'rgba(33,200,122,0.04)'; });
+    uploadDrop.addEventListener('drop', e => {
+      e.preventDefault();
+      uploadDrop.style.background = 'rgba(33,200,122,0.04)';
+      const files = e.dataTransfer.files;
+      if (files.length) {
+        document.querySelector('.upload-label input[type="file"]').files = files;
+        handleUpload({ files });
+      }
+    });
+  </script>
+</body>
+</html>
