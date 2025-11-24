@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>EcoClassify Vision - AI Waste Segregation System</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+  
+  <link rel="stylesheet" href="../static/styles.css">
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <i class="fa-solid fa-recycle"></i> EcoClassify <span>Vision</span>
+    </div>
+    <div class="badge">Transforming Waste Management with AI</div>
+    <div class="main-title">AI Waste Segregation System</div>
+    <div class="subtitle">
+      Using advanced computer vision to automatically classify waste into recyclable categories, promoting sustainability and efficient recycling.
+    </div>
+    <div class="features">
+      <div class="feature-card">
+        <i class="fa-solid fa-camera"></i>
+        <div class="feature-title">Real-time Detection</div>
+        <div class="feature-desc">Classify waste instantly using your device's camera.</div>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-leaf"></i>
+        <div class="feature-title">Eco-Friendly</div>
+        <div class="feature-desc">Promote recycling and reduce environmental impact.</div>
+      </div>
+      <div class="feature-card">
+        <i class="fa-solid fa-brain"></i>
+        <div class="feature-title">AI-Powered</div>
+        <div class="feature-desc">Deep learning model trained to recognize waste types.</div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="tabs">
+      <button class="tab-btn active" onclick="showTab('uploadTab', this)">Upload Image</button>
+      <button class="tab-btn" onclick="showTab('captureTab', this)">Capture from Webcam</button>
+      <button class="tab-btn" onclick="showTab('liveTab', this)">Live Detection</button>
+    </div>
+    <!-- Upload Tab -->
+    <div id="uploadTab" class="tab-content active">
+      <div class="upload-area" id="uploadDrop">
+        <i class="fa-solid fa-cloud-arrow-up"></i>
+        <div style="font-size:1.15rem;font-weight:600;margin-bottom:6px;">Upload Waste Image</div>
+        <div class="upload-note">Drag & drop your image here or</div>
+        <label class="upload-label">
+          Browse Files
+          <input type="file" accept="image/*" onchange="handleUpload(this)">
+        </label>
+        <div class="upload-note">Limit 20MB per file - JPG, JPEG, PNG</div>
+      </div>
+      <div class="cards-row">
+        <div class="result-card" id="uploadedImageCard">
+          <i class="fa-regular fa-image"></i>
+          <div class="result-title">Uploaded Image</div>
+          <div class="result-content" id="uploadedImageText">No image uploaded</div>
+        </div>
+        <div class="result-card" id="segmentationCard">
+          <i class="fa-regular fa-file-lines"></i>
+          <div class="result-title">Segregation Result</div>
+          <div class="result-content" id="segmentationText">Results will appear here</div>
+        </div>
+      </div>
+      <div class="action-row">
+        <button class="action-btn process" onclick="processImage()">Process Image</button>
+        <button class="action-btn reset" onclick="resetUpload()">Reset</button>
+      </div>
+    </div>
+    <!-- Capture Tab -->
+    <div id="captureTab" class="tab-content">
+      <div class="upload-area">
+        <i class="fa-solid fa-camera"></i>
+        <div style="font-size:1.15rem;font-weight:600;margin-bottom:6px;">Capture Waste Image</div>
+        <div class="upload-note">Use your webcam to capture a photo of your waste item.</div>
+        <video id="camera" autoplay playsinline style="margin-top:12px;max-width:100%;border-radius:10px;"></video><br>
+        <button class="upload-label" onclick="captureImage()">Capture</button>
+        <button class="upload-label" onclick="flipCamera()" style="background:var(--accent);color:#222;margin-left:10px;">Flip Camera</button>
+      </div>
+      <div class="cards-row">
+        <div class="result-card" id="capturedImageCard">
+          <i class="fa-regular fa-image"></i>
+          <div class="result-title">Captured Image</div>
+          <div class="result-content" id="capturedImageText">No image captured</div>
+        </div>
+        <div class="result-card" id="captureResultCard">
+          <i class="fa-regular fa-file-lines"></i>
+          <div class="result-title">Segregation Result</div>
+          <div class="result-content" id="captureResultText">Results will appear here</div>
+        </div>
+      </div>
+    </div>
+    <!-- Live Tab -->
+    <div id="liveTab" class="tab-content">
+      <div class="upload-area">
+        <i class="fa-solid fa-video"></i>
+        <div style="font-size:1.15rem;font-weight:600;margin-bottom:6px;">Live Detection</div>
+        <div class="upload-note">Point your camera at waste items for live predictions.</div>
+        <video id="realtimeCamera" autoplay playsinline style="margin-top:12px;max-width:100%;border-radius:10px;"></video><br>
+        <button class="upload-label" onclick="flipRealtimeCamera()" style="background:var(--accent);color:#222;margin-top:10px;">Flip Camera</button>
+      </div>
+      <div class="result-card" style="margin:0 auto;">
+        <i class="fa-regular fa-file-lines"></i>
+        <div class="result-title">Live Result</div>
+        <div class="result-content" id="realtimeResultText">Results will appear here</div>
+      </div>
+    </div>
+    <!-- <div class="upload-note" style="margin-top:18px;">
+      <i class="fa-solid fa-circle-info"></i>
+      Using EcoSort AI Model v2.1 - Trained on 50,000+ waste images across 6 categories. Integrated with OpenCV for real-time processing.
+    </div> -->
+  </div>
+  <div class="footer">
+    &copy; 2025 AI Waste Segregation System.<br>
+    Bringing AI to sustainability for a cleaner, greener planet.<br>
+    - Designed and Developed by Eco Thinkers
+  </div>
+
+  <script src="../static/scripts.js"></script>
+  
+</body>
+</html>
