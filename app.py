@@ -8,7 +8,7 @@ app = Flask(__name__)
 CORS(app)
 
 # Load model
-interpreter = tf.lite.Interpreter(model_path="waste_model.tflite")
+interpreter = tf.lite.Interpreter(model_path="waste_model (2).tflite")
 interpreter.allocate_tensors()
 input_details = interpreter.get_input_details()
 output_details = interpreter.get_output_details()
@@ -38,3 +38,4 @@ def predict():
 #     app.run(debug=True)
 if __name__ == '__main__':
     app.run(host="0.0.0.0", debug=True)
+
